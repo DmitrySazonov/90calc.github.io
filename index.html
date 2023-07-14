@@ -14,30 +14,30 @@
         </h1>
     </div>
     <div class="column is-one-quarter">
-        <input class="input is-large" type="number" placeholder="A" id="fa" onchange="Calc()">
+        <input class="input is-large" type="text" placeholder="A" id="fa" oninput="calculate()">
     </div>
     <div class="column is-one-quarter">
-        <input class="input is-large" type="number" placeholder="B" id="fb" onchange="Calc()">
+        <input class="input is-large" type="text" placeholder="B" id="fb" oninput="calculate()">
     </div>
     <div class="column is-one-quarter">
-        <input class="input is-large" type="number" placeholder="C" id="res" disabled>
+        <span class="is-size-4" id="res">-</span>
     </div>
 </section>
 <script>
-function Calc() {
-    var a = document.getElementById('fa').value;
-    var b = document.getElementById('fb').value;
-    var aa = +a*+a;
-    var bb = +b*+b
-    if(aa > 0 && bb > 0){
-       var rs = (aa + bb) ** (1/2);
-         if(Number.isInteger(rs)){
-             document.getElementById('res').value = rs;
-                    }else{
-             document.getElementById('res').value = rs.toFixed(2);
-                    }
-               }
-}
+function calculate() {
+        var a = document.getElementById('fa').value;
+        var b = document.getElementById('fb').value;
+        var aa = +a * +a;
+        var bb = +b * +b;
+        var resElement = document.getElementById('res');
+
+        if (aa > 0 && bb > 0) {
+            var rs = Math.sqrt(aa + bb);
+            resElement.textContent = Number.isInteger(rs) ? rs : rs.toFixed(2);
+        } else {
+            resElement.textContent = '-';
+        }
+    }
 </script>
 </body>
 </html>
