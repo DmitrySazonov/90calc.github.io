@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>90Calc</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            90Calculator
+        </h1>
+    </div>
+    <div class="column is-one-quarter">
+        <input class="input is-large" type="number" placeholder="A" id="fa" onchange="Calc()">
+    </div>
+    <div class="column is-one-quarter">
+        <input class="input is-large" type="number" placeholder="B" id="fb" onchange="Calc()">
+    </div>
+    <div class="column is-one-quarter">
+        <input class="input is-large" type="number" placeholder="C" id="res" disabled>
+    </div>
+</section>
+<script>
+function Calc() {
+    var a = document.getElementById('fa').value;
+    var b = document.getElementById('fb').value;
+    var aa = +a*+a;
+    var bb = +b*+b
+    if(aa > 0 && bb > 0){
+       var rs = (aa + bb) ** (1/2);
+         if(Number.isInteger(rs)){
+             document.getElementById('res').value = rs;
+                    }else{
+             document.getElementById('res').value = rs.toFixed(2);
+                    }
+               }
+}
+</script>
+</body>
+</html>
