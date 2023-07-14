@@ -25,19 +25,17 @@
 </section>
 <script>
 function calculate() {
-        var a = document.getElementById('fa').value;
-        var b = document.getElementById('fb').value;
-        var aa = +a * +a;
-        var bb = +b * +b;
-        var resElement = document.getElementById('res');
+  var a = +document.getElementById('fa').value;
+  var b = +document.getElementById('fb').value;
+  var resElement = document.getElementById('res');
 
-        if (aa > 0 && bb > 0) {
-            var rs = Math.sqrt(aa + bb);
-            resElement.textContent = Number.isInteger(rs) ? rs : rs.toFixed(2);
-        } else {
-            resElement.textContent = '-';
-        }
-    }
+  if (a > 0 && b > 0) {
+    var rs = Math.sqrt(a * a + b * b);
+    resElement.textContent = rs % 1 === 0 ? rs : rs.toFixed(2);
+  } else {
+    resElement.textContent = '-';
+  }
+}
 </script>
 </body>
 </html>
